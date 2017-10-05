@@ -52,3 +52,5 @@ gem 'devise'
 gem 'rails_admin'
 
 gem 'cancan'
+
+gem 'rails_12factor', group: :production
