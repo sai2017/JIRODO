@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+<p><%= notice %></p>
+<h1>店舗一覧</h1>
+
+<% @jiros.each do |jiro| %>
+  <p><%= jiro.shop_name %></p>
+  <%= link_to "詳細", jiro_path(jiro.id) %>
+<% end %>
+  </div>
+</div>

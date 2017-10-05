@@ -1,0 +1,32 @@
+<%= form_for(@jiro) do |f| %>
+  <%= f.label :shop_name %>
+  <%= f.text_field :shop_name, class: 'form-control' %>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_field :content, class: 'form-control', row: 10 %>
+  <br>
+  <%= f.label :shop_address %>
+  <%= f.text_field :shop_address, class: 'form-control' %>
+  <br>
+  <%= f.label :telephone_number %>
+  <%= f.text_field :telephone_number, class: 'form-control' %>
+  <br>
+  <%= f.label :nearest_station %>
+  <%= f.text_field :nearest_station, class: 'form-control' %>
+  <br>
+  <%= f.label :hours %>
+  <%= f.text_field :hours, class: 'form-control' %>
+  <br>
+  <%= f.label :holiday %>
+  <%= f.text_field :holiday, class: 'form-control' %>
+  <br>
+  <%= f.label :menu %>
+  <%= f.text_field :menu, class: 'form-control', row: 10 %>
+  <br>
+  <%= f.label :note %>
+  <%= f.text_field :note, class: 'form-control', row: 10 %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "店舗一覧に戻る", jiros_path %>

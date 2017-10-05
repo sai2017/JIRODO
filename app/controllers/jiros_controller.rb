@@ -1,0 +1,52 @@
+class JirosController < ApplicationController
+
+  before_action :set_jiro, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
+
+  def index
+    @jiros = Jiro.all
+  end
+
+  def new
+    @jiro = Jiro.new
+  end
+
+  def create
+    Jiro.create(jiros_params)
+    redirect_to jiros_path, notice: "店舗情報を作成しました！"
+  end
+
+  def show
+    @jiro = Jiro.find(params[:id])
+  end
+
+  def edit
+    @jiro = Jiro.find(params[:id])
+  end
+
+  def update
+    @jiro = Jiro.find(params[:id])
+    @jiro.update(jiros_params)
+    redirect_to jiros_path, notice: "店舗情報を更新しました！"
+  end
+
+  def destroy
+    @jiro = Jiro.find(params[:id])
+    @jiro.destroy
+    redirect_to jiros_path, notice: "店舗情報を削除しました！"
+  end
+
+  private
+    def jiros_params
+      params.require(:jiro).permit(:shop_name, :content, :shop_address, :telephone_number, :nearest_station, :hours, :holiday, :menu, :note)
+    end
+
+    # idをキーとして値を取得するメソッド
+    def set_jiro
+      @jiro = Jiro.find(params[:id])
+    end
+
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+end
