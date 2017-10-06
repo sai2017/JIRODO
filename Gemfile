@@ -43,6 +43,12 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'letter_opener_web'
+
+  gem 'dotenv-rails'
+end
+
 gem 'twitter-bootstrap-rails'
 
 gem 'jquery-turbolinks'
@@ -54,3 +60,10 @@ gem 'rails_admin'
 gem 'cancan'
 
 gem 'rails_12factor', group: :production
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+gem 'carrierwave'
+gem 'mini_magick'
