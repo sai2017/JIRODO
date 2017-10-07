@@ -14,10 +14,13 @@ class JirosController < ApplicationController
   def create
     Jiro.create(jiros_params)
     redirect_to jiros_path, notice: "店舗情報を作成しました！"
+    NoticeMailer.sendmail_jiro(@jiro).deliver
   end
 
   def show
     @jiro = Jiro.find(params[:id])
+    @review = @jiro.reviews.build
+    @reviews = @jiro.reviews
   end
 
   def edit
