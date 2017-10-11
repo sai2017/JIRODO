@@ -27,11 +27,3 @@
   <p><%= @jiro.note %></p>
   <br>
 <% end %>
-
-<p>コメント一覧</p>
-<div id="reviews_area">
-   <%= render partial: 'reviews/index', locals: { reviews: @reviews, jiro: @jiro } %>
-</div>
- <%= render partial: 'reviews/form', locals: { review: @review, jiro: @jiro } %>
-
-<%= link_to "店舗一覧に戻る", jiros_path %>

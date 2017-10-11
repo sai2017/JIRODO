@@ -3,6 +3,7 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.references :user
       t.references :jiro
+      t.string :title
       t.text :content
 
       t.timestamps null: false

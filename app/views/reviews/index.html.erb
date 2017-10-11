@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>レビュー</h1>
+    <% @reviews.each do |review| %>
+     <% unless review.id.nil? %>
+     <div class="row">
+        <h4><strong><%= review.title %></strong></h4>
+        <p class="left"><%= review.content %></p>
+        <%= link_to 'もっと見る', jiro_review_path(id: review.id), class: 'btn btn-default btn-sm btn-success' %>
+     </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>
