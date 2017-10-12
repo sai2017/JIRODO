@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-
-  before_action do
-    @jiro = Jiro.find(params[:jiro_id])
-  end
+  before_action :set_jiro, only: [:index, :new, :create]
+  #before_action do
+    #@jiro = Jiro.find(params[:jiro_id])
+  #end
 
   def index
     @reviews = @jiro.reviews
@@ -32,11 +32,17 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @comment = @review.comments.build
+    @comments = @review.comments
   end
 
     private
       # ストロングパラメーター
       def review_params
         params.require(:review).permit(:jiro_id, :title, :content)
+      end
+
+      def set_jiro
+        @jiro = Jiro.find(params[:jiro_id])
       end
   end

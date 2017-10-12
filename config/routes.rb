@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :reviews do
+    resources :comments
+  end
+
   root 'top#index'
   get 'jiros' => 'jiros#index'
   # The priority is based upon order of creation: first created -> highest priority.
