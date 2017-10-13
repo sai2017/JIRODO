@@ -41,7 +41,7 @@ class JirosController < ApplicationController
 
   private
     def jiros_params
-      params.require(:jiro).permit(:shop_name, :content, :shop_address, :telephone_number, :nearest_station, :hours, :holiday, :menu, :note)
+      params.require(:jiro).permit(:shop_name, :content, :shop_address, :telephone_number, :nearest_station, :hours, :holiday, :menu, :note, :image)
     end
 
     # idをキーとして値を取得するメソッド
