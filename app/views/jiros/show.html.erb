@@ -1,29 +1,116 @@
+<div class="container">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
 <%= form_for(@jiro) do |f| %>
-  <p><strong>店名</strong></p>
-  <p><%= @jiro.shop_name %></p>
-  <br>
-  <p><strong>特徴</strong></p>
-  <p><%= @jiro.content %></p>
-  <br>
-  <p><strong>住所</strong></p>
-  <p><%= @jiro.shop_address %></p>
-  <br>
-  <p><strong>電話番号</strong></p>
-  <p><%= @jiro.telephone_number %></p>
-  <br>
-  <p><strong>最寄り駅</strong></p>
-  <p><%= @jiro.nearest_station %></p>
-  <br>
-  <p><strong>営業時間</strong></p>
-  <p><%= @jiro.hours %></p>
-  <br>
-  <p><strong>定休日</strong></p>
-  <p><%= @jiro.holiday %></p>
-  <br>
-  <p><strong>メニュー</strong></p>
-  <p><%= @jiro.menu %></p>
-  <br>
-  <p><strong>注意事項</strong></p>
-  <p><%= @jiro.note %></p>
-  <br>
+<h1 class="shop-name-heading"><%= @jiro.shop_name %></h1>
+<!-- 管理ユーザーがログイン済みの時のメニュー -->
+<!-- 店舗イメージ -->
+<div class="shop-image">
+  <%= image_tag(@jiro.image) %>
+</div>
+<!-- 店舗概要 -->
+<p class="shop-bio"><%= simple_format(@jiro.content) %></p>
+<!-- 店舗テーブル -->
+<div class="table-responsive">
+  <table class="table table-bordered table-condensed">
+    <tbody>
+      <tr>
+        <th scope="row">住所</th>
+        <td><%= @jiro.shop_address %></td>
+      </tr>
+      <tr>
+        <th scope="row">電話番号</th>
+        <td><%= @jiro.telephone_number %></td>
+      </tr>
+      <tr>
+        <th scope="row">最寄り駅</th>
+        <td><%= simple_format(@jiro.nearest_station) %></td>
+      </tr>
+      <tr>
+        <th scope="row">営業時間</th>
+        <td><%= simple_format(@jiro.hours) %></td>
+      </tr>
+      <tr>
+        <th scope="row">定休日</th>
+        <td><%= @jiro.holiday %></td>
+      </tr>
+      <tr>
+        <th scope="row">メニュー</th>
+        <td><%= simple_format(@jiro.menu) %></td>
+      </tr>
+      <tr>
+        <th scope="row">注意事項</th>
+        <td><%= simple_format(@jiro.note) %></td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+</div>
 <% end %>
+
+    </div>
+    <div class="col-md-4">
+
+      <!-- Search Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Search</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Categories</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <a href="#">HTML</a>
+                </li>
+                <li>
+                  <a href="#">Freebies</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">JavaScript</a>
+                </li>
+                <li>
+                  <a href="#">CSS</a>
+                </li>
+                <li>
+                  <a href="#">Tutorials</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Side Widget</h5>
+        <div class="card-body">
+          <%= link_to "レビューを見る", jiro_reviews_path(@jiro), class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

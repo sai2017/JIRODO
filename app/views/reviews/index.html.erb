@@ -6,7 +6,7 @@
      <% unless review.id.nil? %>
      <div class="row">
         <h4><strong><%= review.title %></strong></h4>
-        <p class="left"><%= review.content %></p>
+        <p class="left"><%= simple_format(review.content) %></p>
         <%= link_to 'もっと見る', jiro_review_path(id: review.id), class: 'btn btn-default btn-sm btn-success' %>
      </div>
      <% end %>

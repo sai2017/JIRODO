@@ -5,7 +5,7 @@
       <p class="left"><strong>タイトル</strong></p>
       <p class="left"><%= @review.title %></p>
       <p class="left"><strong>内容</strong></p>
-      <p class="left"><%= @review.content %></p>
+      <p class="left"><%= simple_format(@review.content) %></p>
     </div>
     <p>コメント一覧</p>
     <div id="comments_area">
