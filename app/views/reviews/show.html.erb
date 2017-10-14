@@ -4,6 +4,7 @@
     <div class="review-text">
       <p class="left"><strong>タイトル</strong></p>
       <p class="left"><%= @review.title %></p>
+      <p class="left"><%= image_tag @review.image.url %></p>
       <p class="left"><strong>内容</strong></p>
       <p class="left"><%= simple_format(@review.content) %></p>
     </div>

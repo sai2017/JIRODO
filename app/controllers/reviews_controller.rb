@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
     private
       # ストロングパラメーター
       def review_params
-        params.require(:review).permit(:jiro_id, :title, :content)
+        params.require(:review).permit(:jiro_id, :title, :image, :content, :image_cache, :remove_image)
       end
 
       def set_jiro
