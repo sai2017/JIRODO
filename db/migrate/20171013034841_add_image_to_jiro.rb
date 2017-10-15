@@ -1,4 +1,4 @@
-class AddImageToJiros < ActiveRecord::Migration
+class AddImageToJiro < ActiveRecord::Migration
   def change
     add_column :jiros, :image, :string
   end

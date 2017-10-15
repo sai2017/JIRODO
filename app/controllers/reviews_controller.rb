@@ -21,7 +21,8 @@ class ReviewsController < ApplicationController
     title: review_params[:title],
     content: review_params[:content],
     user_id: current_user.id,
-    jiro_id: params[:jiro_id]
+    jiro_id: params[:jiro_id],
+    image: review_params[:image]
     )
     if @review.save
       redirect_to jiro_reviews_path,notice:"レビューを作成しました！"
