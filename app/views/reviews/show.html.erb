@@ -1,13 +1,32 @@
 <p id="notice"><%= notice %></p>
-<div class="child row">
-  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
-    <div class="review-text">
-      <p class="left"><strong>タイトル</strong></p>
-      <p class="left"><%= @review.title %></p>
-      <p class="left"><%= image_tag @review.image.url %></p>
-      <p class="left"><strong>内容</strong></p>
-      <p class="left"><%= simple_format(@review.content) %></p>
-    </div>
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <div class="well">
+     <div class="row">
+       <div class="index-house">
+        <div class="index-house-header list-inline">
+          <li><%= profile_img(@review.user) %></li>
+          <li><%= @review.user.name %>さんの口コミ</li>
+        </div>
+        <div class="index-house-header list-inline">
+          <li><h4><strong><a href="/houses/1"><%= @review.title %></a></strong></h4></li>
+        </div>
+
+        <div class="index-house-body">
+          <div class="index-house-body-left col-xs-12 col-md-6">
+                  <%= image_tag(@review.image) %>
+          </div>
+          <div class="index-house-body-right  col-xs-12 col-md-6">
+                <div class="index-house-text">
+                  <p><%= simple_format(@review.content) %></p>
+                </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </div>
+
+  <div class="well">
     <p>コメント一覧</p>
     <div id="comments_area">
       <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
