@@ -5,6 +5,8 @@
     <% @reviews.each do |review| %>
      <% unless review.id.nil? %>
      <div class="row">
+        <p><%= review.user.name %></p>
+        <p><%= profile_img(review.user) %></p>
         <h4><strong><%= review.title %></strong></h4>
         <p><%= image_tag(review.image) %></p>
         <p class="left"><%= simple_format(review.content) %></p>
