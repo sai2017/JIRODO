@@ -17,7 +17,7 @@
               <h2 class="card-title"><%= jiro.shop_name %></h2>
 
 
-              <%= link_to "詳細", jiro_path(jiro.id), class: 'btn btn-primary' %>
+              <%= link_to "詳細", jiro_path(jiro.id), class: 'btn btn-primary btn-block' %>
             </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
@@ -44,13 +44,17 @@
 
           <!-- Search Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Search</h5>
+            <h4 class="card-header">店舗検索</h4>
             <div class="card-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
+                <%= search_form_for(@q, url: jiros_path, class: 'well') do |f| %>
+                  <%= f.label :shop_name_cont, '店舗名' %>
+                  <%= f.text_field :shop_name_cont, class: "form-control" %>
+                <div>
+                </br></br></br>
+                  <%= f.submit '検索する', class: 'btn btn-primary' %>
+                </div>
+                <% end %>
               </div>
             </div>
           </div>

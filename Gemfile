@@ -67,3 +67,5 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'ransack'

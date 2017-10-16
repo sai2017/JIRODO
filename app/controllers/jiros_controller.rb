@@ -4,7 +4,10 @@ class JirosController < ApplicationController
   before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @jiros = Jiro.all
+    #@jiros = Search::Jiro.all
+    #@q = Jiro.search(params[:q]).search(search_params)
+    @q = Jiro.ransack(params[:q])#:q(query)は入力された値,公式ではransackメソッドを推奨
+    @jiros = @q.result(distinct: true) #検索の結果を受け取る。
   end
 
   def new
@@ -52,4 +55,5 @@ class JirosController < ApplicationController
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
+
 end
