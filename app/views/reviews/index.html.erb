@@ -2,6 +2,9 @@
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
     <p><%= notice %></p>
     <h1>レビュー</h1>
+    <%= link_to "レビューを投稿する", new_jiro_review_path(@jiro), class: "btn btn-warning btn-lg" %>
+    <%= link_to "店舗詳細に戻る", jiro_path(@jiro), class: "btn btn-default btn-lg" %>
+    </br></br></br>
     <div class="well">
     <% @reviews.each do |review| %>
      <% unless review.id.nil? %>
