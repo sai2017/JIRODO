@@ -5,8 +5,10 @@ class ReviewsController < ApplicationController
   #end
 
   def index
-    @reviews = @jiro.reviews
-    @reviews = Review.page(params[:page]).per(2)
+    @reviews = @jiro.reviews.page(params[:page]).per(2)
+    #@reviews = Review.page(params[:page]).per(2)
+    #@reviews = Kaminari.paginate_array(array).page(params[:page]).per(2)
+    #@reviews = current_user.reviews.page(params[:page])
   end
 
   def new
