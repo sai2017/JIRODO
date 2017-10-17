@@ -8,6 +8,7 @@ class JirosController < ApplicationController
     #@q = Jiro.search(params[:q]).search(search_params)
     @q = Jiro.ransack(params[:q])#:q(query)は入力された値,公式ではransackメソッドを推奨
     @jiros = @q.result(distinct: true) #検索の結果を受け取る。
+    @jiros = Jiro.page(params[:page]).per(1)
   end
 
   def new

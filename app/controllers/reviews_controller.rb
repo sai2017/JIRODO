@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = @jiro.reviews
+    @reviews = Review.page(params[:page]).per(2)
   end
 
   def new
