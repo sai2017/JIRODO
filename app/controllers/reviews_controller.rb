@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_jiro, only: [:index, :new, :create]
   #before_action do
     #@jiro = Jiro.find(params[:jiro_id])
