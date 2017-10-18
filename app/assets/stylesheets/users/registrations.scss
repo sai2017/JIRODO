@@ -57,30 +57,20 @@ body {
 	margin: 10px 0px;
 }
 
-p {
-	color: #aebbcb;
-}
 
-a {
-	color: #23a9f6;
-}
 
 .divider-form {
     border: 1px solid #EBEFF1;
     margin: 15px -40px 10px;
 }
 
-label {
+.label1 {
 	text-transform: uppercase;
 	color: #bdc7d4;
 }
 
-strong {
-	color: #95a5bb;
-}
-
 .form-control {
-    background: none;
+    background: white;
     height: 40px;
     border: none;
     border-radius: 0px;
@@ -91,4 +81,9 @@ strong {
 
 .form-control:focus {
     box-shadow: none;
+}
+
+.jumbotron{
+  height: 10%;
+  background: rgba(255,255,255,0.5);
 }
