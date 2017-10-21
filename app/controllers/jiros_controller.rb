@@ -10,6 +10,7 @@ class JirosController < ApplicationController
     #@jiros = @q.result(distinct: true) #検索の結果を受け取る。
     @search = Jiro.search(params[:q])
     @jiros = @search.result.page(params[:page]).per(5)
+    @favorites = Favorite.all
   end
 
   def new
@@ -46,7 +47,7 @@ class JirosController < ApplicationController
 
   private
     def jiros_params
-      params.require(:jiro).permit(:shop_name, :content, :shop_address, :telephone_number, :nearest_station, :hours, :holiday, :menu, :note, :image)
+      params.require(:jiro).permit(:shop_name, :content, :shop_address, :telephone_number, :nearest_station, :hours, :holiday, :menu, :note, :image, :favorites_count)
     end
 
     # idをキーとして値を取得するメソッド

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   resources :jiros do
     resources :reviews
+    resources :favorites, only: [:create, :destroy, :index]
   end
 
   resources :reviews do

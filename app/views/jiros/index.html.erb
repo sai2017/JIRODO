@@ -16,6 +16,9 @@
                     <div class="index-house-text">
                       <h3><%= jiro.shop_name %></h3>
                       <p><%= link_to "詳細", jiro_path(jiro.id), class: 'btn btn-default btn-sm btn-success' %></p>
+
+                      <td><%= render partial: 'favorites/favorites', locals: { jiro: jiro } %><td>
+
                     </div>
               </div>
             </div>

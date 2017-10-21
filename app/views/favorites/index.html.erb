@@ -1,0 +1,7 @@
+<h2>ブックマークリスト</h2>
+    <% @favorites.each do |favorite| %>
+      <% favorite = Favorite.find(favorite.jiro_id) %>
+            <div class="name3"><%= link_to jiro.shop_name, jiro_path(jiro.id) %></div>
+            
+    <br />
+    <% end %>

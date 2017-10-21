@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+
+
+  <% if jiro.favorite_user(current_user.id) %>
+    <div id="like-destroy-button_<%= jiro.id %>">
+      <%= button_to jiro_favorite_path(jiro, @favorites), method: :delete, remote: true do %>
+        <p>いいね！済み！</p>
+        <span>
+          <%= jiro.favorites.count %>
+        </span>
+      <% end %>
+    </div>
+  <% else %>
+    <div id="like-create-button_<%= jiro.id %>">
+      <%= button_to jiro_favorites_path(jiro), remote: true do %>
+        <p>いいね！する？</p>
+        <span>
+          <%= jiro.favorites.count %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>いいね！するにはログインしてね！</p>
+  <span>
+   <%= jiro.favorites_count %>
+  </span>
+
+<% end %>

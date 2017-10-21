@@ -12,7 +12,7 @@
     <%= f.label :名前 %><br />
     <%= f.text_field :name, class: "form-control" %>
   </div>
-  
+
   <% if @user.provider.blank? %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
