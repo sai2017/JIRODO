@@ -7,4 +7,5 @@ class Jiro < ActiveRecord::Base
   def favorite_user(user_id)
    favorites.find_by(user_id: user_id)
   end
+  has_many :favorite_users, through: :favorites, source: :user
 end

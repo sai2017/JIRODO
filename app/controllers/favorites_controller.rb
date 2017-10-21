@@ -18,7 +18,6 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @favorites = Favorite.where(user_id: @user.id).all
+    @favorites = current_user.favorite_jiros
   end
 end

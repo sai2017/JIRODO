@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  #has_many :jiros, through: :favorites
+  has_many :favorite_jiros, through: :favorites, source: :jiro
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)
