@@ -3,11 +3,13 @@
     <div class="col-md-8">
       <h1 class="page-header">店舗一覧</h1>
           <!-- Blog Post -->
+
       <div class="card mb-4">
         <% @jiros.each do |jiro| %>
         <div class="panel panel-warning">
          <div class="panel-heading">
           <div class="row">
+            <%= link_to jiro_path(jiro.id) do %>
             <div class="index-house-body">
               <div class="index-house-body-left col-xs-12 col-md-6">
                       <%= image_tag(jiro.image) %>
@@ -16,7 +18,7 @@
                     <div class="index-house-text">
                       <h3><%= jiro.shop_name %></h3>
                       <p><%= link_to "詳細", jiro_path(jiro.id), class: 'btn btn-default btn-sm btn-success' %></p>
-
+            <% end %>
                       <td><%= render partial: 'favorites/favorites', locals: { jiro: jiro } %><td>
 
                     </div>
@@ -26,6 +28,7 @@
          </div>
         </div>
         <% end %>
+
         <%= paginate @jiros %>
       </div>
 

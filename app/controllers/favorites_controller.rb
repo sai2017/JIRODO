@@ -19,5 +19,7 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = current_user.favorite_jiros
+    @favorite_jiros = Jiro.joins(:favorites)
+
   end
 end
