@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  resources :users
+  
   resources :jiros do
     resources :reviews
     resources :favorites, only: [:create, :destroy, :index]

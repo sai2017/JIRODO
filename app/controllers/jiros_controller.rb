@@ -21,6 +21,7 @@ class JirosController < ApplicationController
     Jiro.create(jiros_params)
     redirect_to jiros_path, notice: "店舗情報を作成しました！"
     NoticeMailer.sendmail_jiro(@jiro).deliver
+    #@jiro.user_id = current_user.id
   end
 
   def show

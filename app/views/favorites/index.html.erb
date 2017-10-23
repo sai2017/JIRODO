@@ -1,9 +1,11 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-8">
     <div class="card mb-4">
       <h2>マイ二郎</h2>
-      <% @favorite_jiros.each do |jiro| %>
+
+      <% current_user.favorite_jiros.each do |jiro| %>
       <div class="panel panel-warning">
        <div class="panel-heading">
         <div class="row">
