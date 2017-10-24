@@ -19,6 +19,7 @@
         <p class="shop-bio"><h1><%= simple_format(@jiro.content) %></h1></p>
         <!-- 店舗テーブル -->
         <div class="table-responsive">
+          <div class="text-left">
           <table class="table table-bordered table-condensed">
             <tbody>
               <tr>
@@ -51,6 +52,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       <% end %>
     </div>
@@ -73,7 +75,7 @@
       <div class="card my-4">
 
         <div class="card-body">
-          <i class="fa fa-pencil" aria-hidden="true"><%= link_to "レビューを投稿する", new_jiro_review_path(@jiro), class: "btn btn-warning btn-lg" %></i>
+          <%= link_to "レビューを投稿する", new_jiro_review_path(@jiro), class: "btn btn-warning btn-lg" %></i>
         </div>
       </div>
     </div>

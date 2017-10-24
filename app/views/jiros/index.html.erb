@@ -15,13 +15,16 @@
                       <%= image_tag(jiro.image) %>
               </div>
               <div class="index-house-body-right  col-xs-12 col-md-6">
-                    <div class="index-house-text">
+                  <div class="index-house-text">
                       <h3><%= jiro.shop_name %></h3>
-                      <p><%= link_to "詳細", jiro_path(jiro.id), class: 'btn btn-default btn-sm btn-success' %></p>
             <% end %>
+                    <div class="text-left">
+                      <p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i><%= jiro.shop_address %></p>
+                      <p><i class="fa fa-train fa-lg" aria-hidden="true"></i><%= jiro.nearest_station %></p>
+                      <p><i class="fa fa-calendar-times-o fa-lg" aria-hidden="true"></i><%= jiro.holiday %></p>
                       <td><%= render partial: 'favorites/favorites', locals: { jiro: jiro } %><td>
-
                     </div>
+                  </div>
               </div>
             </div>
           </div>
