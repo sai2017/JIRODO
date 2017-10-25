@@ -2,14 +2,19 @@
 
   <div class="row">
 
-    <!-- Blog Entries Column -->
     <div class="col-md-8">
       <%= form_for(@jiro) do |f| %>
         <h1 class="shop-name-heading"><%= @jiro.shop_name %></h1>
     </div>
-        <!-- 管理ユーザーがログイン済みの時のメニュー -->
-        <!-- 店舗イメージ -->
+
   </div>
+
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation" class="active"><%= link_to "店舗情報", jiro_path(@jiro.id) %></a></li>
+    <li role="presentation"><%= link_to "レビュー", jiro_reviews_path(@jiro) %></a></li>
+    <li role="presentation"><%= link_to "投稿", new_jiro_review_path(@jiro) %></a></li>
+  </ul>
+
   <div class="row">
     <div class="col-md-8">
         <div class="shop-image">
@@ -59,9 +64,6 @@
 
 
    <div class="col-md-4">
-
-      <!-- Search Widget -->
-
 
       <!-- Side Widget -->
     <div class="well">

@@ -1,11 +1,21 @@
 <div class="container">
-  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-    <p><%= notice %></p>
-    <h1>レビュー</h1>
-    <%= link_to "レビューを投稿する", new_jiro_review_path(@jiro), class: "btn btn-warning btn-lg" %>
-    <%= link_to "店舗詳細に戻る", jiro_path(@jiro), class: "btn btn-default btn-lg" %>
-    </br></br></br>
 
+  <div class="row">
+
+    <div class="col-md-8">
+
+        <h1 class="shop-name-heading"><%= @jiro.shop_name %></h1>
+    </div>
+
+  </div>
+
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation"><%= link_to "店舗情報", jiro_path(@jiro.id) %></a></li>
+    <li role="presentation" class="active"><%= link_to "レビュー", jiro_reviews_path(@jiro) %></a></li>
+    <li role="presentation"><%= link_to "投稿", new_jiro_review_path(@jiro) %></a></li>
+  </ul>
+
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
     <% @reviews.each do |review| %>
      <% unless review.id.nil? %>
      <div class="row">
@@ -37,5 +47,5 @@
      <% end %>
     <% end %>
     <%= paginate @reviews %>
-
+  </div>
 </div>

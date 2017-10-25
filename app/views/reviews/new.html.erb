@@ -1,4 +1,19 @@
 <div class="container">
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+        <h1 class="shop-name-heading"><%= @jiro.shop_name %></h1>
+    </div>
+
+  </div>
+
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation"><%= link_to "店舗情報", jiro_path(@jiro.id) %></a></li>
+    <li role="presentation"><%= link_to "レビュー", jiro_reviews_path(@jiro) %></a></li>
+    <li role="presentation" class="active"><%= link_to "投稿", new_jiro_review_path(@jiro) %></a></li>
+  </ul>
   <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
     <h2>レビューを作成する</h2>
     <%= render 'form' %>
