@@ -9,26 +9,66 @@
 </head>
 <body>
 
-  <header>
-    <ul>
-      <li><strong><%= link_to "JIRODO", root_path %></strong></li>
-      <li><%= link_to "店舗一覧", jiros_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to 'マイ二郎', favorites_path %></li>
-        <li><%= link_to 'プロフィール', edit_user_registration_path %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path  %></li>
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
-      <% end %>
-    </ul>
-  </header>
+  <div class="container">
+      <header style="height:80px;"></header>
+      <!------------- Navbar -------------->
+      <nav class="navbar navbar-inverse bs-dark">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Jirodo</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><%= link_to "トップ", root_path %><span class="sr-only">(current)</span></li>
+              <li class><%= link_to "店舗一覧", jiros_path %><span class="sr-only"></span></li>
+              <li class><%= link_to 'マイ二郎', favorites_path %><span class="sr-only"></span></li>
+              <% if user_signed_in? %>
+              <% else %>
+              <% end %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explores <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Sports</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Fashion</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Videos</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Account
+                <img src="http://placehold.it/150x150" class="img-circle" alt="Profile Image" />
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Profile</a></li>
+                  <li class><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><span class="sr-only"></span></li>
+                  <li><a href="#">Followers</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Settings</a></li>
+                </ul>
+              </li>
+            <% else %>
+              <li class><%= link_to 'ログイン', new_user_session_path  %><span class="sr-only"></span></li>
+            <% end %>
+            </ul>
+          </div>
+      </nav>
 
 <%= yield %>
-
-  <footer>
-    <p>© 2017 Copyright JIRODO</p>
-  </footer>
 
 </body>
 </html>
