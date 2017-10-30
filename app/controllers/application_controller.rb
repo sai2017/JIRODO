@@ -13,12 +13,5 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
     end
 
-    before_filter :set_search
 
-    def set_search
-      #@search = Article.search(params[:q])
-      
-      @search = Jiro.ransack(params[:q]) #ransackメソッド推奨
-      @search_jiros = @search.result.page(params[:page]).per(5)
-    end
 end

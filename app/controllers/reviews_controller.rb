@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_jiro, only: [:index, :new, :create]
+  before_action :set_jiro, only: [:index, :new, :create, :edit, :update, :destroy]
+  #before_action :set_review, only: [:edit, :update, :destroy]
   #before_action do
     #@jiro = Jiro.find(params[:jiro_id])
   #end
@@ -41,6 +42,22 @@ class ReviewsController < ApplicationController
     @comments = @review.comments
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to jiro_reviews_path, notice: "レビューを更新しました！"
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to jiro_reviews_path, notice: "レビューを削除しました！"
+  end
+
     private
       # ストロングパラメーター
       def review_params
@@ -50,4 +67,5 @@ class ReviewsController < ApplicationController
       def set_jiro
         @jiro = Jiro.find(params[:jiro_id])
       end
+
   end

@@ -15,10 +15,6 @@ Rails.application.routes.draw do
   resources :jiros do
     resources :reviews
     resources :favorites, only: [:create, :destroy, :index]
-    collection do
-            get :choice
-      get :search
-    end
   end
 
   resources :favorites, only: [:create, :destroy, :index]
