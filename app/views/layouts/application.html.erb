@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-  <div class="container">
-      <header style="height:80px;"></header>
+<div class="container">
+    <div class="content">
+      <header style="height:10px;"></header>
       <!------------- Navbar -------------->
       <nav class="navbar navbar-inverse bs-dark">
           <div class="navbar-header">
@@ -20,12 +20,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Jirodo</a>
+            <a class="navbar-brand" href="/">Jirodo</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><%= link_to "トップ", root_path %><span class="sr-only">(current)</span></li>
+              <li class=><%= link_to "トップ", root_path %><span class="sr-only">(current)</span></li>
               <li class><%= link_to "店舗一覧", jiros_path %><span class="sr-only"></span></li>
               <li class><%= link_to 'マイ二郎', favorites_path %><span class="sr-only"></span></li>
               <% if user_signed_in? %>
@@ -45,7 +45,7 @@
                 </ul>
               </li>
             </ul>
-            
+
             <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li class="dropdown">
@@ -54,11 +54,9 @@
                 <img src="http://placehold.it/150x150" class="img-circle" alt="Profile Image" />
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Profile</a></li>
-                  <li class><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><span class="sr-only"></span></li>
-                  <li><a href="#">Followers</a></li>
+                  <li class><%= link_to 'マイページ', edit_user_registration_path %><span class="sr-only"></span></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#">Settings</a></li>
+                  <li class><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><span class="sr-only"></span></li>
                 </ul>
               </li>
             <% else %>
@@ -69,6 +67,15 @@
       </nav>
 
 <%= yield %>
+    </div>
+
+  <footer>
+	<div class="row">
+		<legend></legend>
+        <p>© 2017 Copyright JIRODO. All Rights Reserved. </p>
+	</div>
+  </footer>
+</div>
 
 </body>
 </html>
