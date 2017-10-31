@@ -70,14 +70,14 @@
       <div class="card my-4">
 
         <div class="card-body">
-          <%= link_to "レビューを見る", jiro_reviews_path(@jiro), class: "btn btn-primary btn-lg" %>
+          <%= render partial: 'favorites/favorites', locals: { jiro: @jiro } %>
         </div>
       </div>
     </br></br></br>
       <div class="card my-4">
 
         <div class="card-body">
-          <%= link_to "レビューを投稿する", new_jiro_review_path(@jiro), class: "btn btn-warning btn-lg" %></i>
+          <%= link_to "店舗一覧に戻る", jiros_path(@jiro), class: "btn btn-default btn-lg" %>
         </div>
       </div>
     </div>

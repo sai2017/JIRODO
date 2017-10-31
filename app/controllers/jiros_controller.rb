@@ -28,6 +28,7 @@ class JirosController < ApplicationController
     @jiro = Jiro.find(params[:id])
     @review = @jiro.reviews.build
     @reviews = @jiro.reviews
+    @favorites = Favorite.all
   end
 
   def edit

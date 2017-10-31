@@ -7,6 +7,7 @@
         <img src="<%= asset_path "icon_red_heart.png" %>">
         <span>
           <%= jiro.favorites.count %>
+          <li>現在<%= jiro.favorites.count %>人がマイ二郎にしています！</li>
         </span>
       <% end %>
     </div>
@@ -16,15 +17,14 @@
         <img src="<%= asset_path "icon_heart.png" %>">
         <span>
           <%= jiro.favorites.count %>
+          <li>現在<%= jiro.favorites.count %>人がマイ二郎にしています！</li>
         </span>
       <% end %>
     </div>
   <% end %>
 
 <% else %>
-  <p>いいね！するにはログインしてね！</p>
-  <span>
-   <%= jiro.favorites_count %>
-  </span>
+  <p>ログインしてマイ二郎しよう！人気の店舗もリサーチできる！</p>
+
 
 <% end %>
