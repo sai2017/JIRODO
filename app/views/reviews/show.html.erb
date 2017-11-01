@@ -28,17 +28,13 @@
       </div>
      </div>
 
-  <div class="panel panel-warning">
-   <div class="panel-heading">
+  <div class="panel panel-default">
+   <div class="panel-body">
     <p>コメント</p>
     <div id="comments_area">
       <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
     </div>
     <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
-    <% if current_user.id == @review.user_id %>
-      <%= link_to '編集', edit_review_path(@review) %> |
-    <% end %>
-    <%= link_to '戻る', reviews_path %>
    </div>
   </div>
 </div>

@@ -1,9 +1,12 @@
 <ul>
   <% comments.each do |comment| %>
     <% unless comment.id.nil? %>
+     <div class="alert alert-warning alert-dismissible" role="alert">
       <li>
-        <p class="left"><%= comment.user.name %>さんがコメントしました。</p>
-        <p class="left"><%= comment.content %></p>
+        <p class="left"><b><%= profile_img(comment.user) %><%= comment.user.name %></b></p>
+        <div class="well">
+          <p class="left"><%= comment.content %></p>
+        </div>
         <% if current_user.id == comment.user.id %>
           <p class="right">
             <%= link_to '', edit_review_comment_path(review, comment), class: "fa fa-pencil-square-o fa-lg" %>
@@ -11,6 +14,7 @@
           </p>
         <% end %>
       </li>
+     </div>
     <% end %>
   <% end %>
 </ul>

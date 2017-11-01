@@ -20,8 +20,14 @@
         <div class="shop-image">
           <%= image_tag(@jiro.image) %>
         </div>
+        <br/>
         <!-- 店舗概要 -->
-        <p class="shop-bio"><h1><%= simple_format(@jiro.content) %></h1></p>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+        <div class="text-left">
+          <p class="shop-bio"><h1><%= simple_format(@jiro.content) %></h1></p>
+        </div>
+        </div>
+        <br/>
         <!-- 店舗テーブル -->
         <div class="table-responsive">
           <div class="text-left">
@@ -66,6 +72,7 @@
    <div class="col-md-4">
 
       <!-- Side Widget -->
+    <br/><br/><br/>
     <div class="well">
       <div class="card my-4">
 
