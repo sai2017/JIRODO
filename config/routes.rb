@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'contacts/new'
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -23,6 +25,12 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :contacts, only: [:new, :create] do
+    collection do
+      post :confirm
+    end
+  end
+  
   root 'top#index'
   get 'jiros' => 'jiros#index'
   # The priority is based upon order of creation: first created -> highest priority.

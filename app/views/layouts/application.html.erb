@@ -30,19 +30,7 @@
               <% if user_signed_in? %>
                 <li class><%= link_to 'マイ二郎', favorites_path %><span class="sr-only"></span></li>
               <% end %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explores <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Sports</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Fashion</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Gallery</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Videos</a></li>
-                </ul>
-              </li>
+              <li class><%= link_to "お問い合わせ", new_contact_path %><span class="sr-only"></span></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

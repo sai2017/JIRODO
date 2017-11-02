@@ -1,5 +1,4 @@
 class NoticeMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -11,4 +10,10 @@ class NoticeMailer < ApplicationMailer
     mail to: "skth.s.0410@gmail.com",
          subject: '【JIRODO】店舗情報が投稿されました'
   end
-end
+
+  def sendmail_contact(contact)
+    @contact = contact
+
+    mail to: @contact.email,
+    subject:'【JIRODO】お問合わせをいただきました'
+  end
