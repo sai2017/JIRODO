@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
     if @contact.save
     NoticeMailer.sendmail_contact(@contact).deliver
     redirect_to root_path,notice:"お問い合わせが完了しました！"
-   else
+    else
     render 'new'
     end
   end

@@ -17,3 +17,4 @@ class NoticeMailer < ApplicationMailer
     mail to: @contact.email,
     subject:'【JIRODO】お問合わせをいただきました'
   end
+end
