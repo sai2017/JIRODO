@@ -29,6 +29,9 @@
                     <p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i><%= jiro.shop_address %></p>
                     <p><i class="fa fa-train fa-lg" aria-hidden="true"></i><%= jiro.nearest_station %></p>
                     <p><i class="fa fa-calendar-times-o fa-lg" aria-hidden="true"></i><%= jiro.holiday %></p>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                      <p><b><%= simple_format(jiro.content) %></b></p>
+                    </div>
                   </div>
                 </div>
             </div>
