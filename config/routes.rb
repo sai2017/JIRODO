@@ -30,7 +30,10 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
+
+  resource :user, only: :destroy do
+    get 'retire'
+  end
   root 'top#index'
   get 'jiros' => 'jiros#index'
   # The priority is based upon order of creation: first created -> highest priority.
