@@ -11,6 +11,13 @@
   background-attachment: fixed;
 }
 
+@media screen and (max-width: 599px) {
+/* スマホ用（幅が600px未満のウインドウ用）*/
+.main-header{
+background-color: #E4D736;
+}
+}
+
 .main-header img {
   display: block;
   margin: 0 auto;
