@@ -7,14 +7,14 @@
   padding-bottom: 40%;
   width: 100%;
   background-size: cover;
-  background-image: image-url("smartphone1.jpg");
+  background-image: image-url("jiro1.jpg");
   background-attachment: fixed;
 }
 
 @media screen and (max-width: 599px) {
 /* スマホ用（幅が600px未満のウインドウ用）*/
 .main-header{
-background-image: image-url("jiro1.jpg");
+background-image: image-url("smartphone1.jpg");
 }
 }
 
