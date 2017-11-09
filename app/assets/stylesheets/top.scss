@@ -14,7 +14,11 @@
 @media screen and (max-width: 599px) {
 /* スマホ用（幅が600px未満のウインドウ用）*/
 .main-header{
+  padding-bottom: 90%;
+  width: 100%;
+  background-size: cover;
 background-image: image-url("smartphone1.jpg");
+background-attachment: fixed;
 }
 }
 
