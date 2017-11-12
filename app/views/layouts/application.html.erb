@@ -27,6 +27,7 @@
             <ul class="nav navbar-nav">
               <li class=><%= link_to "トップ", root_path %><span class="sr-only">(current)</span></li>
               <li class><%= link_to "店舗一覧", jiros_path %><span class="sr-only"></span></li>
+              <li class><%= link_to "マップ", map_index_path %><span class="sr-only"></span></li>
               <% if user_signed_in? %>
                 <li class><%= link_to 'マイ二郎', favorites_path %><span class="sr-only"></span></li>
               <% end %>

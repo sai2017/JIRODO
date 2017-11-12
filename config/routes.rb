@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'map/index'
+
   get 'contacts/new'
 
   if Rails.env.development?
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
+
   root 'top#index'
   get 'jiros' => 'jiros#index'
   # The priority is based upon order of creation: first created -> highest priority.

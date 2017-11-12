@@ -247,8 +247,10 @@ GEM
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     grease (0.3.1)
     haml (5.0.3)
       temple (>= 0.8.0)
@@ -300,7 +302,7 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    libv8 (3.16.14.19-x86_64-darwin-16)
+    libv8 (3.16.14.19)
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -491,6 +493,8 @@ DEPENDENCIES
   devise
   dotenv-rails
   fog
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

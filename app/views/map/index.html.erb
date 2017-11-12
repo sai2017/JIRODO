@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html { width: 100%; height: 350px; }
+body { width: 100%; height: 350px; margin: 0; }
+#map { width: 100%; height: 500px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+//即時関数
+(function(){
+    "use strict";
+    //地図情報
+    var mapData    = { pos: { lat: 35.661904, lng: 139.660416 }, zoom: 11 };
+    //マーカー情報(情報ウインドウ含む)
+    var markerData = [
+        { pos: { lat: 35.738807, lng: 139.661859 }, title: "ラーメン二郎　桜台駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎　桜台駅前店</h3><br><a href='/jiros/1, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.749958, lng: 139.543549 }, title: "ラーメン二郎 ひばりヶ丘駅前店", icon: "", infoWindowOpen: false, infoWindowContent: "<h3>ラーメン二郎 ひばりヶ丘駅前店</h3><br><a href='/jiros/2, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.629515, lng: 139.401367 }, title: "ラーメン二郎 八王子野猿街道店2", icon: "", infoWindowOpen: false, infoWindowContent: "<h3>ラーメン二郎 八王子野猿街道店2</h3><p>hogehoge</p><br><a href='/jiros/3, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.513069, lng: 139.538649 }, title: "ラーメン二郎 中山駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 中山駅前店</h3><br><a href='/jiros/4, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.742555, lng: 139.797066 }, title: "ラーメン二郎 千住大橋駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 千住大橋駅前店</h3><br><a href='/jiros/5, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.661790, lng: 139.583876 }, title: "ラーメン二郎 仙川店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 仙川店</h3><br><a href='/jiros/6, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.785979, lng: 139.899257 }, title: "ラーメン二郎 松戸駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 松戸駅前店</h3><br><a href='/jiros/7, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.728273, lng: 139.713833 }, title: "ラーメン二郎 池袋東口店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 池袋東口店</h3><br><a href='/jiros/8, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 38.261677, lng: 140.866205 }, title: "ラーメン二郎 仙台店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 仙台店</h3><br><a href='/jiros/9, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.671976, lng: 139.477237 }, title: "ラーメン二郎 府中店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 府中店</h3><br><a href='/jiros/10, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.691523, lng: 140.049642 }, title: "ラーメン二郎 京成大久保店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 京成大久保店</h3><br><a href='/jiros/11, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.923973, lng: 140.000842 }, title: "ラーメン二郎 茨城守谷店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 茨城守谷店</h3><br><a href='/jiros/12, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 36.422914, lng: 139.794921 }, title: "ラーメン二郎 栃木街道店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 栃木街道店</h3><br><a href='/jiros/13, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 37.506627, lng: 139.931417 }, title: "ラーメン二郎 会津若松駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 会津若松駅前店</h3><br><a href='/jiros/14, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 37.917235, lng: 139.060086 }, title: "ラーメン二郎 新潟店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 新潟店</h3><br><a href='/jiros/15, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.638943, lng: 139.312215 }, title: "ラーメン二郎 めじろ台店", icon: "", infoWindowOpen: false, infoWindowContent: "<h3>ラーメン二郎 めじろ台店</h3><br><a href='/jiros/16, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.441969, lng: 139.630769 }, title: "ラーメン二郎 横浜関内店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 横浜関内店</h3><br><a href='/jiros/17, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.648060, lng: 139.741633 }, title: "ラーメン二郎 三田本店", icon: "", infoWindowOpen: true , infoWindowContent: "<h3>ラーメン二郎 三田本店</h3><br><a href='/jiros/18, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.696388, lng: 139.756480 }, title: "ラーメン二郎　神田神保町店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎　神田神保町店</h3><br><a href='/jiros/19, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.343056, lng: 139.482248 }, title: "ラーメン二郎 湘南藤沢店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 湘南藤沢店</h3><br><a href='/jiros/20, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.684084, lng: 139.881926 }, title: "ラーメン二郎 環七一之江店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 環七一之江店</h3><br><a href='/jiros/21, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.634213, lng: 139.707099 }, title: "ラーメン二郎 目黒店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 目黒店</h3><br><a href='/jiros/22, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.785905, lng: 139.674725 }, title: "ラーメン二郎 西台駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 西台駅前店</h3><br><a href='/jiros/23, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.708436, lng: 139.496208 }, title: "ラーメン二郎 新小金井街道店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 新小金井街道店</h3><br><a href='/jiros/24, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.529931, lng: 139.432934 }, title: "ラーメン二郎 相模大野店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 相模大野店</h3><br><a href='/jiros/25, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.661904, lng: 139.660416 }, title: "ラーメン二郎 環七新新代田店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 環七新新代田店</h3><br><a href='/jiros/26, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.623977, lng: 139.743051 }, title: "ラーメン二郎 品川店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 品川店</h3><br><a href='/jiros/27, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.701934, lng: 139.826678 }, title: "ラーメン二郎 亀戸店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 亀戸店</h3><br><a href='/jiros/28, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.734960, lng: 139.880018 }, title: "ラーメン二郎 小岩店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 小岩店</h3><br><a href='/jiros/29, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.534952, lng: 139.705199 }, title: "ラーメン二郎 京急川崎店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 京急川崎店</h3><br><a href='/jiros/30, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.612431, lng: 139.638988 }, title: "ラーメン二郎 上野毛店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 上野毛店</h3><br><a href='/jiros/31, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.703605, lng: 139.626290 }, title: "ラーメン二郎 荻窪店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 荻窪店</h3><br><a href='/jiros/32, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.665597, lng: 139.750589 }, title: "ラーメン二郎 新橋店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 新橋店</h3><br><a href='/jiros/33, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.902703, lng: 139.476623 }, title: "ラーメン二郎 川越店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 川越店</h3><br><a href='/jiros/34, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 43.067401, lng: 141.343947 }, title: "ラーメン二郎 札幌店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 札幌店</h3><br><a href='/jiros/35, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.696108, lng: 139.701927 }, title: "ラーメン二郎 新宿歌舞伎町店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 新宿歌舞伎町店</h3><br><a href='/jiros/36, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.696329, lng: 139.698339 }, title: "ラーメン二郎 新宿小滝橋通り店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 新宿小滝橋通り店</h3><br><a href='/jiros/37, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.563733, lng: 139.714577 }, title: "ラーメン二郎 JR西口蒲田店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 JR西口蒲田店</h3><br><a href='/jiros/38, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.043861, lng: 135.787511 }, title: "ラーメン二郎 京都店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 京都店</h3><br><a href='/jiros/39, target='_blank'>詳細を見る</a>" },
+
+    ];
+    //地図の設定と作成
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: mapData.pos,
+        zoom:   mapData.zoom
+    });
+    for( var i=0; i < markerData.length; i++ )
+    {
+        //即時関数
+        (function(){
+            //マーカーの設定と作成
+            var marker = new google.maps.Marker({
+                position: markerData[i].pos,
+                title:    markerData[i].title,
+                icon:     markerData[i].icon,
+                map: map
+            });
+            if( markerData[i].infoWindowContent )
+            {
+                //情報ウインドウの設定と作成
+                var infoWindow = new google.maps.InfoWindow({
+                    content: markerData[i].infoWindowContent
+                });
+                //情報ウインドウのオープンをマーカーのクリックイベントに登録
+                marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                });
+                //情報ウインドウのオープン
+                if( markerData[i].infoWindowOpen )
+                {
+                    infoWindow.open(map, marker);
+                }
+            }
+        }());
+    }
+}());
+</script>
+</body>
+</html>

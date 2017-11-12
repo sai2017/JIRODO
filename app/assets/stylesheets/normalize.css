@@ -449,3 +449,7 @@ template {
 img{
   max-width: 100%;
 }
+
+.panel-heading img{
+  width:40px;
+}
