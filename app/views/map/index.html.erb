@@ -20,7 +20,7 @@ body { width: 100%; height: 350px; margin: 0; }
     var mapData    = { pos: { lat: 35.661904, lng: 139.660416 }, zoom: 11 };
     //マーカー情報(情報ウインドウ含む)
     var markerData = [
-        { pos: { lat: 35.738807, lng: 139.661859 }, title: "ラーメン二郎　桜台駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎　桜台駅前店</h3><br><a href='/jiros/1, target='_blank'>詳細を見る</a>" },
+        { pos: { lat: 35.738807, lng: 139.661859 }, title: "ラーメン二郎　桜台駅前店", icon: "image", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎　桜台駅前店</h3><br><a href='/jiros/1, target='_blank'>詳細を見る</a>" },
         { pos: { lat: 35.749958, lng: 139.543549 }, title: "ラーメン二郎 ひばりヶ丘駅前店", icon: "", infoWindowOpen: false, infoWindowContent: "<h3>ラーメン二郎 ひばりヶ丘駅前店</h3><br><a href='/jiros/2, target='_blank'>詳細を見る</a>" },
         { pos: { lat: 35.629515, lng: 139.401367 }, title: "ラーメン二郎 八王子野猿街道店2", icon: "", infoWindowOpen: false, infoWindowContent: "<h3>ラーメン二郎 八王子野猿街道店2</h3><br><a href='/jiros/3, target='_blank'>詳細を見る</a>" },
         { pos: { lat: 35.513069, lng: 139.538649 }, title: "ラーメン二郎 中山駅前店", icon: "", infoWindowOpen: false , infoWindowContent: "<h3>ラーメン二郎 中山駅前店</h3><br><a href='/jiros/4, target='_blank'>詳細を見る</a>" },
@@ -71,10 +71,11 @@ body { width: 100%; height: 350px; margin: 0; }
         //即時関数
         (function(){
             //マーカーの設定と作成
+            var image = 'http://maps.google.com/mapfiles/kml/pal5/icon41.png';
             var marker = new google.maps.Marker({
                 position: markerData[i].pos,
                 title:    markerData[i].title,
-                icon:     markerData[i].icon,
+                icon:     image,
                 map: map
             });
             if( markerData[i].infoWindowContent )
