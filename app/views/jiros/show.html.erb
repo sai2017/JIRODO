@@ -65,11 +65,26 @@
           </table>
           </div>
         </div>
-      <% end %>
+        <h3 class="row-space-3">アクセス</h3>
+          <div id="map"></div>
+            <div class="col-md-3">
+            </div>
+          <style>
+            #map {
+              width: 100%;
+              height: 350px;
+            }
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+          </style>
     </div>
 
+      <% end %>
 
-   <div class="col-md-4">
+    <div class="col-md-4">
 
       <!-- Side Widget -->
     <br/><br/><br/>
@@ -89,4 +104,26 @@
       </div>
     </div>
   </div>
+
 </div>
+
+
+<script>
+  function initMap() {
+    // Create the map.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: {lat: <%= @jiro.latitude %>, lng:<%= @jiro.longitude %>},
+      mapTypeId: 'terrain'
+    });
+
+      var marker = new google.maps.Marker({
+            position: uluru = {lat: <%= @jiro.latitude %>, lng:<%= @jiro.longitude %>},
+            map: map
+          });
+  }
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBj7LerYhDZortZqhGrSTm19UiJLCdVdbY&callback=initMap">
+</script>
