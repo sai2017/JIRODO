@@ -4,9 +4,22 @@
    <div class="top-couteiner">
     <div class="jumbotron">
       <div class="container">
-        <div class="JIRODO"><h1>JIRODO</h1></div>
+        <div class="JIRODO"><h1>JIRODO</h1></div><br><br><br>
+        <div class="container">
+        	<div class="row">
+        		<div class="searchInput">
+              <%= search_form_for(@search, url: jiros_path) do |f| %>
+              <div class="input-group">
+                <%= f.text_field :shop_name_cont, class: "searchField", placeholder: '店名で検索' %>
+                <span class="input-group-btn" style="padding-right: 0px">
+                  <%= f.button fa_icon("search"), class: "btn btn-primary searchInput glyphicon" %>
+                </span>
+              </div>
+              <% end %>
+        		</div>
+        	</div>
+        </div>
 
-        <font size="6"><h2 class="btn btn-info fa fa-search"><a href="/jiros">お店を検索！</a></h2></font>
       </div>
     </div>
    </div>

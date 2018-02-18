@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
 
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
 
+  before_filter :set_search
+
+  def set_search
+    #@search = Article.search(params[:q])
+    @search = Jiro.ransack(params[:q]) #ransackメソッド推奨
+    @search_jiros = @search.result.page(params[:page])
+  end
+
   protected
 
     def configure_permitted_parameters
