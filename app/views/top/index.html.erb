@@ -1,27 +1,28 @@
 <section class="main-header">
   <p class="flash"><%= notice %><%= alert %></p>
-  <div class="col-xs-12 col-md-10 col-md-offset-1 col-xl-12">
-   <div class="top-couteiner">
-    <div class="jumbotron">
+
       <div class="container">
-        <div class="JIRODO"><h1>JIRODO</h1></div><br><br><br>
-        <div class="container">
-        <br>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+             <div class="JIRODO"><h1 style="font-size:80%">JIRODO</h1></div><br><br><br>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <%= search_form_for(@search, url: jiros_path) do |f| %>
             <div class="input-group">
             	<div class="form-group  has-feedback">
-                    <input type="text" class="form-control" id="inputSuccess5">
+                    <%= f.text_field :shop_name_cont, class: "form-control", placeholder: '店名で検索' %>
                     <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <span class="input-group-btn">
-                    <button class="btn btn-success" type="button">Consultar!</button>
+                    <%= f.submit '検索する', class: 'btn btn-success' %>
                 </span>
             </div>
+          <% end %>
         </div>
 
-      </div>
-    </div>
-   </div>
-  </div>
 </section>
 <div class="landing-section gray-color">
   <div class="container">
