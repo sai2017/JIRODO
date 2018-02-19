@@ -33,6 +33,16 @@
                 <li class><%= link_to 'マイ二郎', favorites_path %><span class="sr-only"></span></li>
               <% end %>
               <li class><%= link_to "お問い合わせ", new_contact_path %><span class="sr-only"></span></li>
+              <li class="searchInput">
+                <%= search_form_for(@search, url: jiros_path) do |f| %>
+                <div class="input-group">
+                  <%= f.text_field :shop_name_cont, class: "searchField", placeholder: '店名で検索' %>
+                  <span class="input-group-btn" style="padding-right: 0px">
+                    <%= f.button fa_icon("search"), class: "btn btn-primary searchInput glyphicon" %>
+                  </span>
+                </div>
+                <% end %>
+              </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
