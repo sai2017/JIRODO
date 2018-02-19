@@ -1,33 +1,3 @@
-.searchField {
-    display: inline-block;
-    width: 50%;
-    height: 38px;
-    margin: 10px;
-    border: 1px solid grey;
-    font-size: 20px;
-    outline: grey;
-    padding: 5px;
-    padding-right: 50px;
-    cursor: pointer;
-    color: grey;
-    box-sizing:border-box;
-}
-.searchInput {
-position: relative;
-}
-.searchInput .glyphicon {
-position: absolute;
-z-index: 2;
-right: 186px;
-font-size: 24px;
-width: 40px;
-color: #4b4b4b;
-text-align: center;
-padding: 1px 0;
-top: 0px;
-cursor: pointer;
-}
-
 .jumbotron{
   height: 10%;
   background: rgba(255,255,255,0.5);
@@ -198,6 +168,34 @@ body {
   font-family: 'Tahoma', serif;
 }
 
-
+.searchField {
+    display: inline-block;
+    width: 50%;
+    height: 38px;
+    margin: 10px;
+    border: 1px solid grey;
+    font-size: 20px;
+    outline: grey;
+    padding: 5px;
+    padding-right: 50px;
+    cursor: pointer;
+    color: grey;
+    box-sizing:border-box;
+}
+.searchInput {
+position: relative;
+}
+.searchInput .glyphicon {
+position: absolute;
+z-index: 2;
+right: 186px;
+font-size: 24px;
+width: 40px;
+color: #4b4b4b;
+text-align: center;
+padding: 1px 0;
+top: 0px;
+cursor: pointer;
+}
 
 

@@ -6,18 +6,16 @@
       <div class="container">
         <div class="JIRODO"><h1>JIRODO</h1></div><br><br><br>
         <div class="container">
-        	<div class="row">
-        		<div class="searchInput">
-              <%= search_form_for(@search, url: jiros_path) do |f| %>
-              <div class="input-group">
-                <%= f.text_field :shop_name_cont, class: "searchField", placeholder: '店名で検索' %>
-                <span class="input-group-btn" style="padding-right: 0px">
-                  <%= f.button fa_icon("search"), class: "btn btn-primary searchInput glyphicon" %>
+        <br>
+            <div class="input-group">
+            	<div class="form-group  has-feedback">
+                    <input type="text" class="form-control" id="inputSuccess5">
+                    <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button">Consultar!</button>
                 </span>
-              </div>
-              <% end %>
-        		</div>
-        	</div>
+            </div>
         </div>
 
       </div>
