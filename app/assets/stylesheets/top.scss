@@ -7,20 +7,21 @@
   height: 10%;
   padding-bottom: 15%;
   width: 100%;
-  background-size: cover;
   background-image: image-url("jiro1.jpg");
+  background-size: cover;
   background-attachment: fixed;
 }
 
 @media screen and (max-width: 599px) {
 /* スマホ用（幅が600px未満のウインドウ用）*/
-.main-header{
-  padding-bottom: 90%;
-  width: 100%;
-  background-size: cover;
-background-image: image-url("smartphone1.jpg");
-background-attachment: fixed;
-}
+  .main-header{
+    width: 100%;
+    // background-image: image-url("jiro1.jpg") 0 0 no-repeat;
+    background: url(jiro1.jpg);
+    background-size: cover;
+    // background-image: image-url("jiro1.jpg");
+    // background-attachment: fixed;
+  }
 }
 
 .main-header img {
@@ -165,9 +166,16 @@ body {
   padding: 80px;
 }
 
-.JIRODO {
+.JIRODO h1 {
   font-family: 'Tahoma', serif;
-  font-size: 12em;
+  font-size: 150px;
+}
+
+@media screen and (max-width: 599px) {
+/* スマホ用（幅が600px未満のウインドウ用）*/
+  .JIRODO h1 {
+    font-size: 80px;
+  }
 }
 
 .searchField {
