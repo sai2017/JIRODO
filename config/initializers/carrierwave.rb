@@ -16,6 +16,6 @@ CarrierWave.configure do |config|
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/jirodo-production'
     when 'development'
       config.fog_directory = 'jirodo-development'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/jirodo-development'
+      config.asset_host = 'http://localhost:3000'
   end
 end
