@@ -1,30 +1,43 @@
 <%= form_for([@jiro,@review]) do |f| %>
+<div id='form'>
+  <div class='form-horizontal'>
+    <%= f.label :タイトル %>
+    <%= f.text_field :title, class: 'form-control', 'v-model': 'a' %>
 
-<%= f.label :タイトル %>
-<%= f.text_field :title, class: 'form-control' %>
+      <div class="field">
+        <% if @review.image? %>
+          <div class="thumbnail">
+          <%= image_tag @review.image.url %>
+      </div>
+        <% end %><br>
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
+      </div>
+      <div class="field">
+        <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+        <% if @review.persisted? && @review.image? %>
+          <label>
+          <%= f.check_box :remove_image %>
+          画像を削除
+          </label>
+        <% end %>
+      </div>
 
-  <div class="field">
-    <% if @review.image? %>
-      <div class="thumbnail">
-      <%= image_tag @review.image.url %>
+    <%= f.label :内容 %>
+    <%= f.text_area :content, class: 'form-control', 'v-model': 'b' %>
+    <br>
   </div>
-    <% end %><br>
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </div>
-  <div class="field">
-    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
-    <% if @review.persisted? && @review.image? %>
-      <label>
-      <%= f.check_box :remove_image %>
-      画像を削除
-      </label>
-    <% end %>
+  <b>プレビュー</b>
+  <div class='panel panel-info'>
+    <div class='panel-heading'>{{a}}</div>
+    <div class='panel-body'>{{b}}
+    </div>
+    <div class='panel-footer'>あと {{140 - b.length}} 文字
+    </div>
   </div>
 
-<%= f.label :内容 %>
-<%= f.text_area :content, class: 'form-control' %>
-<br>
+</div>
+<%= javascript_pack_tag 'hello_vue', 'data-turbolinks-track': 'reload' %>
 <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
