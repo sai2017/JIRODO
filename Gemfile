@@ -77,3 +77,7 @@ gem 'dotenv-rails'
 gem 'unicorn'
 
 gem 'geocoder'
+
+gem 'rbnacl-libsodium'
+gem 'rbnacl', '< 4.0'
+gem 'bcrypt_pbkdf'
