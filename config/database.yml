@@ -29,7 +29,7 @@ test:
 
 production:
   <<: *default
-  database: jirodo_production
-  username: jirodo
+  database: heroku_254e6ad0b22dd3f
+  username: bab5d197e7bda1
   password: <%= ENV['JIRODO_DATABASE_PASSWORD'] %>
 

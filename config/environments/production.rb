@@ -30,7 +30,7 @@ config.webpacker.check_yarn_integrity = false
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-  
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
 
@@ -80,7 +80,7 @@ config.webpacker.check_yarn_integrity = false
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'radiant-tor-32605.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'powerful-shore-64952.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
