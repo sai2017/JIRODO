@@ -1,0 +1,19 @@
+current directory: /Users/hiroaki/workspace/jirodo/vendor/bundler/ruby/2.3.0/gems/bcrypt_pbkdf-1.0.0/ext/mri
+/Users/hiroaki/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20181229-93563-e9kntt.rb extconf.rb
+creating Makefile
+
+current directory: /Users/hiroaki/workspace/jirodo/vendor/bundler/ruby/2.3.0/gems/bcrypt_pbkdf-1.0.0/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/hiroaki/workspace/jirodo/vendor/bundler/ruby/2.3.0/gems/bcrypt_pbkdf-1.0.0/ext/mri
+make "DESTDIR="
+compiling hash_sha512.c
+compiling bcrypt_pbkdf_ext.c
+compiling blowfish.c
+compiling bcrypt_pbkdf.c
+compiling explicit_bzero.c
+linking shared-object bcrypt_pbkdf_ext.bundle
+
+current directory: /Users/hiroaki/workspace/jirodo/vendor/bundler/ruby/2.3.0/gems/bcrypt_pbkdf-1.0.0/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_pbkdf_ext.bundle ./.gem.20181229-93563-l6eg0n
